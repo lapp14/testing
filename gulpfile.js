@@ -1,12 +1,24 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var inject = require('gulp-inject');
+var gulp    = require('gulp');
+var sass    = require('gulp-sass');
+var inject  = require('gulp-inject');
 var wiredep = require('wiredep').stream;
-var del = require('del');
+var del     = require('del');
 var mainBowerFiles = require('main-bower-files');
-var filter = require('gulp-filter');
-var concat = require('gulp-concat');
-var csso = require('gulp-csso');
+var filter  = require('gulp-filter');
+var concat  = require('gulp-concat');
+var csso    = require('gulp-csso');
+var connect = require('gulp-connect');
+
+gulp.task('connect', function () {
+  connect.server({
+    root: 'dist',
+    port: 8000
+  });
+});
+
+gulp.task('watch', function(){
+    gulp.watch('src/**/*.*', ['build']); 
+})
 
 gulp.task('clean', function(cb){
   del(['dist'], cb);
@@ -51,7 +63,7 @@ gulp.task('vendors', function(){
     .pipe(gulp.dest('dist/styles'));
 });
 
-gulp.task('default', ['clean', 'vendors', 'styles'], function(){
+gulp.task('build', ['clean', 'vendors', 'styles'], function(){
   var injectFiles = gulp.src(['dist/styles/main.css', 'dist/styles/vendors.css']);
 
   var injectOptions = {
