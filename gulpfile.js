@@ -21,10 +21,10 @@ gulp.task('watch', function(){
 })
 
 gulp.task('clean', function(cb){
-  del(['dist'], cb);
+  del.sync(['dist'], cb);
 });
 
-gulp.task('styles', function(){
+gulp.task('styles', function(cb){
   var injectAppFiles = gulp.src('src/styles/*.scss', {read: false});
   var injectGlobalFiles = gulp.src('src/global/*.scss', {read: false});
 
@@ -55,6 +55,11 @@ gulp.task('styles', function(){
     .pipe(gulp.dest('dist/styles'));
 });
 
+gulp.task('build-copy', function() {
+	return gulp.src('src/**/*.{svg,png,jpg,gif,json}')
+		.pipe(gulp.dest('dist'));
+});
+
 gulp.task('vendors', function(){
   return gulp.src(mainBowerFiles())
     .pipe(filter('*.css'))
@@ -63,7 +68,7 @@ gulp.task('vendors', function(){
     .pipe(gulp.dest('dist/styles'));
 });
 
-gulp.task('build', ['clean', 'vendors', 'styles'], function(){
+gulp.task('build-html', ['styles'], function(){
   var injectFiles = gulp.src(['dist/styles/main.css', 'dist/styles/vendors.css']);
 
   var injectOptions = {
@@ -75,3 +80,5 @@ gulp.task('build', ['clean', 'vendors', 'styles'], function(){
     .pipe(inject(injectFiles, injectOptions))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('build', ['clean', 'vendors',  'build-copy', 'build-html']);
