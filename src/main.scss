@@ -3,6 +3,37 @@
 
 // bower:scss
 // endbower
-
+ 
 // inject:app
 // endinject
+
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700');
+$font-family-base: 'Oxygen', sans-serif;
+//@import "bootstrap";
+//@import "font-awesome";
+
+$background-color:#f3f3f3;
+$nav-text: #fff;
+
+html {
+    font-family: 'Oxygen', sans-serif;
+    width: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: $background-color;
+}
+
+h1, h2 {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 300;
+}
+
+div.player-card {
+    
+}
+
