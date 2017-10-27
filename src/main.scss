@@ -7,6 +7,7 @@
 // inject:app
 // endinject
 
+
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700');
 $font-family-base: 'Oxygen', sans-serif;
 //@import "bootstrap";
@@ -26,14 +27,41 @@ body {
     background: $background-color;
 }
 
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
 h1, h2 {
     display: block;
     margin: 10px 0;
     text-align: center;
-    font-weight: 300;
+    font-weight: $font-thin;
 }
 
 div.player-card {
-    
+    padding: 10px;
+    border: 1px solid $color-dark-grey;
 }
 
+div.player-card img {
+    float: left; 
+    padding-right: 10px;
+}
+
+div.player-card .username {
+    font-size: 1.2em;
+    font-weight: $font-bold;
+}
+
+div.player-card .char {
+}
+
+div.player-card .type {
+}
+
+div.player-card .acc {
+}
