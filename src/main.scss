@@ -3,7 +3,7 @@
 
 // bower:scss
 // endbower
- 
+  
 // inject:app
 // endinject
 
@@ -47,9 +47,17 @@ div.player-card {
     border: 1px solid $color-dark-grey;
 }
 
-div.player-card img {
-    float: left; 
-    padding-right: 10px;
+div.player-card div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+div.player-card div.content {
+	
+}	
+
+div.player-card .thumbnail {    
+    margin-right: 10px;
 }
 
 div.player-card .username {
@@ -64,4 +72,25 @@ div.player-card .type {
 }
 
 div.player-card .acc {
+}
+
+div.player-card .ranking {
+	display: inline-block;
+	text-align: right;
+	float: right;
+	font-weight: $font-bold;
+}
+
+div.player-card .ranking span {	
+	display: inline-block;
+}
+
+div.player-card .ranking .rank {	
+	font-size: 1.5em;
+	line-height: 1em; 
+}
+
+div.player-card .ranking .score {
+    padding-top: 4px;
+	font-size: 1.2em;
 }
