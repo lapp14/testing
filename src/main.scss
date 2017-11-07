@@ -135,10 +135,9 @@ span.status.new {
 
 table {
     border-collapse: separate;
-    border-radius:  $corner-radius;
-    -moz-border-radius: $corner-radius;
     @include item-border();
     @include shadow();
+    border-radius: $corner-radius;
 }
 
 table tr td.center {
@@ -154,12 +153,13 @@ table tr.rowB {
 }
 
 td, th {
+    background-clip: padding-box;
     padding: 8px;
 }
 
 td {
     border-left: $item-border;
-    border-top: $item-border;   
+    border-top: $item-border;  
 }
 
 th {
@@ -170,4 +170,20 @@ th {
 
 td:first-child, th:first-child {
      border-left: none !important;
+}
+
+th:first-child {
+    border-top-left-radius: $corner-radius * 0.6;
+}
+
+th:last-child {
+    border-top-right-radius: $corner-radius * 0.6;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: $corner-radius * 0.6;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: $corner-radius * 0.6;
 }
