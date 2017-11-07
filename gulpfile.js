@@ -51,6 +51,11 @@ gulp.task('styles', function(cb){
     .pipe(inject(injectGlobalFiles, injectGlobalOptions))
     .pipe(inject(injectAppFiles, injectAppOptions))
     .pipe(sass())
+    .on('error', function (err) {
+      console.log(err.toString());
+
+      this.emit('end');
+    })
     // .pipe(csso())
     .pipe(gulp.dest('dist/styles'));
 });
