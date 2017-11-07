@@ -5,14 +5,30 @@ $font-thin:     300;
 $font-regular:  400;
 $font-bold:     700;
 
-$color-dark-grey: #333;
+$scheme-dark-grey: #333;
+$scheme-light-grey: #a8a8a8;
+$scheme-green: #282;
+$scheme-blue: #2891c1;
+$scheme-yellow: #ffde3d;
+$scheme-white: #fff;
+$scheme-offwhite: #f3f3f3;
 
-$background-color:#f3f3f3;
 
+$color-drop-shadow: $scheme-light-grey;
+$color-bg: $scheme-offwhite;
+$color-th: $scheme-blue;
+$color-th-text: $scheme-white;
+$color-tr-rowA: $scheme-white;
+$color-tr-rowB: #e8eaed;
+
+$color-span-status-text: $scheme-white;
+$color-span-status-new: $scheme-green;
 
 //Navbar
+$color-nav-text: $scheme-white;
+
 $navbar-height:                    52px !default;
-$navbar-inverse-bg: #333;
+$navbar-inverse-bg: $scheme-dark-grey;
 $navbar-border-radius:  0;
 
 $navbar-inverse-link-color:                #fff !default;

@@ -13,8 +13,20 @@ $font-family-base: 'Oxygen', sans-serif;
 //@import "bootstrap";
 //@import "font-awesome";
 
-$background-color:#f3f3f3;
-$nav-text: #fff;
+
+
+$corner-radius: 3px;
+$item-border: 1px solid $scheme-dark-grey;
+
+@mixin shadow {
+    -webkit-box-shadow: 2px 2px 5px 0px $color-drop-shadow;
+    -moz-box-shadow: 2px 2px 5px 0px $color-drop-shadow;
+    box-shadow: 2px 2px 5px 0px $color-drop-shadow;
+}
+
+@mixin item-border {
+    border: 1px solid $scheme-dark-grey;
+}
 
 html {
     font-family: 'Oxygen', sans-serif;
@@ -24,7 +36,7 @@ html {
 body {
     padding: 0;
     margin: 0;
-    background: $background-color;
+    background: $color-bg;
 }
 
 .clearfix:after { 
@@ -43,8 +55,7 @@ h1, h2 {
 }
 
 div.player-card {
-    padding: 10px;
-    border: 1px solid $color-dark-grey;
+    padding: 10px;    
 }
 
 div.player-card div {
@@ -57,6 +68,7 @@ div.player-card div.content {
 }	
 
 div.player-card .thumbnail {    
+    margin: 0;
     margin-right: 10px;
 }
 
@@ -66,6 +78,7 @@ div.player-card .username {
 }
 
 div.player-card .char {
+    
 }
 
 div.player-card .type {
@@ -85,12 +98,76 @@ div.player-card .ranking span {
 	display: inline-block;
 }
 
-div.player-card .ranking .rank {	
+div.player-card .ranking .rank {
+    border: 1px solid #666;
+    background: #eee;
+    border-radius: $corner-radius;
+    min-width: 2em;
+    padding: 7px;
 	font-size: 1.5em;
 	line-height: 1em; 
 }
 
 div.player-card .ranking .score {
-    padding-top: 4px;
+    padding-top: 6px;
 	font-size: 1.2em;
+}
+
+span.status {
+    display: inline-block;
+    border-radius: $corner-radius;
+    margin: 0;
+    font-weight: $font-bold;
+    line-height: 1em;
+    color: $color-span-status-text;
+    font-size: 0.9em;
+    @include shadow();
+}
+
+span.status.new {
+    border: 1px solid darken($color-span-status-new, 12%);
+    background: $color-span-status-new;
+}
+
+span.status.new {
+    padding: 4px 8px;
+}
+
+table {
+    border-collapse: separate;
+    border-radius:  $corner-radius;
+    -moz-border-radius: $corner-radius;
+    @include item-border();
+    @include shadow();
+}
+
+table tr td.center {
+    text-align: center;
+}
+
+table tr.rowA {
+    background: $color-tr-rowA;
+}
+
+table tr.rowB {
+    background: $color-tr-rowB;
+}
+
+td, th {
+    padding: 8px;
+}
+
+td {
+    border-left: $item-border;
+    border-top: $item-border;   
+}
+
+th {
+    background-color: $color-th;
+    color: $color-th-text;
+    border-left: $item-border; 
+}
+
+td:first-child, th:first-child {
+     border-left: none !important;
 }
