@@ -24,6 +24,17 @@ $item-border: 1px solid $scheme-dark-grey;
     box-shadow: 2px 2px 5px 0px $color-drop-shadow;
 }
 
+@mixin glow {    
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    border: 1px solid $scheme-blue;  
+    box-shadow: 0 0 5px $scheme-blue; 
+    -moz-box-shadow: 0 0 5px $scheme-blue; 
+    -webkit-box-shadow: 0 0 5px $scheme-blue; 
+}
+
 @mixin item-border {
     border: 1px solid $scheme-dark-grey;
 }
@@ -138,6 +149,7 @@ table {
     @include item-border();
     @include shadow();
     border-radius: $corner-radius;
+    margin-bottom: 28px;
 }
 
 table tr td.center {
@@ -177,7 +189,7 @@ th:first-child {
 }
 
 th:last-child {
-    border-top-right-radius: $corner-radius * 0.6;
+    border-top-right-radius:    $corner-radius * 0.6;
 }
 
 tr:last-child td:first-child {
@@ -187,3 +199,38 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
     border-bottom-right-radius: $corner-radius * 0.6;
 }
+
+input, textarea {    
+    margin: 8px;
+    padding: 6px;
+    vertical-align:  middle;
+    border-radius: $corner-radius * 1.5;
+    border: 1px solid $color-input-border;
+}
+
+input {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+form label {
+    width: 140px;
+    display: inline-block;
+    text-align: right;
+}
+
+input[type=radio], input[type=checkbox] {
+    margin: 8px 12px; 
+}
+
+input[type=textfield]:enabled, textarea:enabled {
+    @include shadow();
+}
+
+input[type=textfield]:focus {
+    @include glow();
+}
+
+
