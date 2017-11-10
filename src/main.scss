@@ -65,8 +65,17 @@ h1, h2 {
     font-weight: $font-thin;
 }
 
+div.player-card:first-child {
+    border-top: 1px solid $scheme-dark-grey;
+}
+
 div.player-card {
-    padding: 10px;    
+    padding: 10px;   
+    border-collapse: collapse;
+    border-left: 1px solid $scheme-dark-grey;
+    border-right: 1px solid $scheme-dark-grey;
+    border-bottom: 1px solid $scheme-dark-grey;
+    @include shadow();
 }
 
 div.player-card div {
@@ -156,11 +165,11 @@ table tr td.center {
     text-align: center;
 }
 
-table tr.rowA {
+.rowA {
     background: $color-tr-rowA;
 }
 
-table tr.rowB {
+.rowB {
     background: $color-tr-rowB;
 }
 
